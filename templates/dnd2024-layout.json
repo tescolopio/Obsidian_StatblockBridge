@@ -1,0 +1,169 @@
+{
+  "name": "D&D 2024",
+  "id": "dnd-2024",
+  "description": "Layout for the D&D 2024 Monster Manual statblock format. Import this file via Obsidian Settings → Fantasy Statblocks → Import Layout.",
+  "cssClasses": ["dnd2024"],
+  "blocks": [
+    {
+      "type": "heading",
+      "id": "heading",
+      "properties": [
+        { "property": "name", "fallback": "Unknown Monster" }
+      ],
+      "subProperties": [
+        { "property": "size" },
+        { "property": "type" },
+        { "property": "subtype", "prefix": " (" , "suffix": ")" },
+        { "property": "alignment", "prefix": ", " }
+      ]
+    },
+    {
+      "type": "divider",
+      "id": "divider-top"
+    },
+    {
+      "type": "property",
+      "id": "armor-class",
+      "label": "Armor Class",
+      "properties": [{ "property": "ac" }]
+    },
+    {
+      "type": "property",
+      "id": "initiative",
+      "label": "Initiative",
+      "properties": [{ "property": "initiative" }]
+    },
+    {
+      "type": "property",
+      "id": "hit-points",
+      "label": "Hit Points",
+      "properties": [
+        { "property": "hp" },
+        { "property": "hit_dice", "prefix": " (", "suffix": ")" }
+      ]
+    },
+    {
+      "type": "property",
+      "id": "speed",
+      "label": "Speed",
+      "properties": [{ "property": "speed" }]
+    },
+    {
+      "type": "divider",
+      "id": "divider-stats"
+    },
+    {
+      "type": "stats",
+      "id": "ability-scores",
+      "properties": [
+        { "property": "stats" }
+      ]
+    },
+    {
+      "type": "saves",
+      "id": "saving-throws",
+      "label": "Saving Throws",
+      "properties": [{ "property": "saves" }]
+    },
+    {
+      "type": "divider",
+      "id": "divider-skills"
+    },
+    {
+      "type": "property",
+      "id": "proficiency-bonus",
+      "label": "Proficiency Bonus",
+      "properties": [{ "property": "proficiency_bonus", "prefix": "+" }]
+    },
+    {
+      "type": "property",
+      "id": "skills",
+      "label": "Skills",
+      "properties": [{ "property": "skillsaves" }]
+    },
+    {
+      "type": "property",
+      "id": "immunities",
+      "label": "Immunities",
+      "properties": [{ "property": "immunities" }]
+    },
+    {
+      "type": "property",
+      "id": "resistances",
+      "label": "Resistances",
+      "properties": [{ "property": "damage_resistances" }]
+    },
+    {
+      "type": "property",
+      "id": "vulnerabilities",
+      "label": "Vulnerabilities",
+      "properties": [{ "property": "damage_vulnerabilities" }]
+    },
+    {
+      "type": "property",
+      "id": "gear",
+      "label": "Gear",
+      "properties": [{ "property": "gear" }]
+    },
+    {
+      "type": "property",
+      "id": "senses",
+      "label": "Senses",
+      "properties": [{ "property": "senses" }]
+    },
+    {
+      "type": "property",
+      "id": "languages",
+      "label": "Languages",
+      "properties": [{ "property": "languages" }]
+    },
+    {
+      "type": "property",
+      "id": "cr",
+      "label": "CR",
+      "properties": [
+        { "property": "cr" },
+        { "property": "xp", "prefix": " (", "suffix": " XP)" }
+      ]
+    },
+    {
+      "type": "divider",
+      "id": "divider-traits"
+    },
+    {
+      "type": "traits",
+      "id": "traits",
+      "properties": [{ "property": "traits" }]
+    },
+    {
+      "type": "section",
+      "id": "actions",
+      "label": "Actions",
+      "properties": [{ "property": "actions" }]
+    },
+    {
+      "type": "section",
+      "id": "bonus-actions",
+      "label": "Bonus Actions",
+      "properties": [{ "property": "bonus_actions" }]
+    },
+    {
+      "type": "section",
+      "id": "reactions",
+      "label": "Reactions",
+      "properties": [{ "property": "reactions" }]
+    },
+    {
+      "type": "section",
+      "id": "legendary-actions",
+      "label": "Legendary Actions",
+      "properties": [{ "property": "legendary_actions" }]
+    },
+    {
+      "type": "section",
+      "id": "lair-actions",
+      "label": "Lair Actions",
+      "properties": [{ "property": "lair_actions" }]
+    }
+  ]
+}

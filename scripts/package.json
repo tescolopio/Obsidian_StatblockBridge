@@ -1,0 +1,26 @@
+{
+  "name": "statblock-bridge",
+  "version": "1.0.0",
+  "description": "D&D 2014 to 2024 statblock converter for the Fantasy Statblocks Obsidian plugin",
+  "main": "convert-to-2024.js",
+  "scripts": {
+    "test": "jest --testPathPattern=../tests",
+    "convert": "node convert-to-2024.js"
+  },
+  "keywords": [
+    "obsidian",
+    "dnd",
+    "d&d",
+    "statblock",
+    "fantasy-statblocks",
+    "2024",
+    "converter"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
