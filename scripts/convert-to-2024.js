@@ -176,7 +176,7 @@ function convertActionList(list) {
  * @returns {Object}            2024-format monster object.
  */
 function convertTo2024(monster2014) {
-  if (!monster2014 || typeof monster2014 !== 'object') {
+  if (!monster2014 || typeof monster2014 !== 'object' || Array.isArray(monster2014)) {
     throw new Error('Invalid input: expected a plain object representing a monster statblock.');
   }
 
