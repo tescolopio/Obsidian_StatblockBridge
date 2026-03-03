@@ -1,0 +1,209 @@
+/*
+ * dnd2024-statblock.css
+ *
+ * Custom CSS overrides for the D&D 2024 Monster Manual visual style.
+ *
+ * Installation
+ * ────────────
+ * 1. Copy this file into your Obsidian vault's snippets folder:
+ *      <vault>/.obsidian/snippets/dnd2024-statblock.css
+ * 2. Enable it in Obsidian → Settings → Appearance → CSS Snippets.
+ *
+ * This stylesheet targets elements rendered by the Fantasy Statblocks plugin
+ * when the "D&D 2024" layout (dnd2024-layout.json) is active. It mirrors the
+ * 2024 Monster Manual aesthetic: cream parchment background, warm orange/gold
+ * section headers, and a cleaner, more spacious ability-score table.
+ */
+
+/* ─── Scoped to the 2024 layout ─────────────────────────────────────────── */
+
+.statblock.dnd2024 {
+  --dnd24-bg:             #fdf6e3;   /* warm parchment */
+  --dnd24-border:         #8b6b3e;   /* antique brown border */
+  --dnd24-header-bg:      #7a2c14;   /* deep red header bar */
+  --dnd24-header-text:    #fdf6e3;
+  --dnd24-section-color:  #c45e1e;   /* orange/gold section headings */
+  --dnd24-rule-color:     #c45e1e;
+  --dnd24-label-color:    #3c1a00;
+  --dnd24-body-color:     #1a1008;
+  --dnd24-font-body:      "Palatino Linotype", Palatino, "Book Antiqua", serif;
+  --dnd24-font-heading:   "Palatino Linotype", Palatino, "Book Antiqua", serif;
+
+  background-color: var(--dnd24-bg);
+  border: 2px solid var(--dnd24-border);
+  border-radius: 4px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.35);
+  color: var(--dnd24-body-color);
+  font-family: var(--dnd24-font-body);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 0.5rem 1rem 1rem;
+}
+
+/* ─── Creature name (top heading) ────────────────────────────────────────── */
+
+.statblock.dnd2024 .statblock-heading {
+  background: var(--dnd24-header-bg);
+  border-radius: 2px;
+  color: var(--dnd24-header-text);
+  font-family: var(--dnd24-font-heading);
+  font-size: 1.4rem;
+  font-variant: small-caps;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  margin: -0.5rem -1rem 0.5rem;
+  padding: 0.4rem 1rem;
+}
+
+/* Creature type / size / alignment sub-heading */
+.statblock.dnd2024 .statblock-heading .subheading {
+  color: var(--dnd24-header-text);
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: normal;
+}
+
+/* ─── Dividers ───────────────────────────────────────────────────────────── */
+
+.statblock.dnd2024 .statblock-rule,
+.statblock.dnd2024 hr {
+  border: none;
+  border-top: 2px solid var(--dnd24-rule-color);
+  margin: 0.5rem 0;
+}
+
+/* ─── Property labels (AC, HP, Speed, CR, etc.) ──────────────────────────── */
+
+.statblock.dnd2024 .property-name,
+.statblock.dnd2024 .statblock-property-name {
+  color: var(--dnd24-label-color);
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
+/* ─── Ability score table ────────────────────────────────────────────────── */
+
+.statblock.dnd2024 .ability-scores,
+.statblock.dnd2024 .statblock-stats {
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.statblock.dnd2024 .ability-scores th,
+.statblock.dnd2024 .statblock-stats th {
+  color: var(--dnd24-section-color);
+  font-size: 0.75rem;
+  font-variant: small-caps;
+  font-weight: bold;
+  padding: 0.15rem 0.25rem;
+  text-align: center;
+}
+
+.statblock.dnd2024 .ability-scores td,
+.statblock.dnd2024 .statblock-stats td {
+  font-size: 0.875rem;
+  padding: 0.1rem 0.25rem;
+  text-align: center;
+}
+
+/* 2024 style: bold the modifier, lighter score above it */
+.statblock.dnd2024 .ability-scores .score {
+  color: #555;
+  font-size: 0.75rem;
+}
+
+.statblock.dnd2024 .ability-scores .modifier {
+  font-weight: bold;
+}
+
+/* ─── Section headings (Actions, Bonus Actions, etc.) ───────────────────── */
+
+.statblock.dnd2024 .statblock-section-heading,
+.statblock.dnd2024 .actions-header,
+.statblock.dnd2024 .section-header {
+  border-bottom: 1px solid var(--dnd24-rule-color);
+  color: var(--dnd24-section-color);
+  font-family: var(--dnd24-font-heading);
+  font-size: 1.05rem;
+  font-variant: small-caps;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  margin-top: 0.6rem;
+  padding-bottom: 0.1rem;
+}
+
+/* ─── Trait / action blocks ──────────────────────────────────────────────── */
+
+.statblock.dnd2024 .trait-name,
+.statblock.dnd2024 .action-name {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.statblock.dnd2024 .trait-desc,
+.statblock.dnd2024 .action-desc {
+  margin-bottom: 0.35rem;
+}
+
+/* Recharge indicators, usage limits, etc. */
+.statblock.dnd2024 .trait-name .recharge,
+.statblock.dnd2024 .action-name .recharge {
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* ─── Legendary / Lair action markers ────────────────────────────────────── */
+
+.statblock.dnd2024 .legendary-actions-count,
+.statblock.dnd2024 .legendary-description {
+  font-style: italic;
+  margin-bottom: 0.35rem;
+}
+
+/* ─── Inline property values (saves, skills, immunities) ─────────────────── */
+
+.statblock.dnd2024 .statblock-property-value {
+  color: var(--dnd24-body-color);
+}
+
+/* ─── Dice roller integration ────────────────────────────────────────────── */
+
+/* Keep the dice roller button subtle but visible */
+.statblock.dnd2024 .dice-roller {
+  cursor: pointer;
+  text-decoration: underline dotted var(--dnd24-section-color);
+  color: inherit;
+}
+
+.statblock.dnd2024 .dice-roller:hover {
+  color: var(--dnd24-section-color);
+}
+
+/* ─── Image (if present) ─────────────────────────────────────────────────── */
+
+.statblock.dnd2024 .statblock-image {
+  border: 2px solid var(--dnd24-border);
+  border-radius: 3px;
+  display: block;
+  margin: 0.5rem auto;
+  max-width: 100%;
+}
+
+/* ─── Responsive: narrow vaults / sidebars ───────────────────────────────── */
+
+@media (max-width: 460px) {
+  .statblock.dnd2024 {
+    font-size: 0.8rem;
+  }
+
+  .statblock.dnd2024 .statblock-heading {
+    font-size: 1.15rem;
+  }
+
+  .statblock.dnd2024 .ability-scores th,
+  .statblock.dnd2024 .ability-scores td {
+    padding: 0.1rem 0.1rem;
+  }
+}
