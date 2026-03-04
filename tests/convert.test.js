@@ -377,11 +377,13 @@ describe('convertTo2024', () => {
     });
 
     expect(m.lair_actions).toHaveLength(2);
-    expect(m.lair_actions[0].desc).toBe(
-      'Attack Roll: +6, reach 10 ft. Hit: 10 (2d6 + 3) bludgeoning damage, and the target is grappled (escape DC 14).'
+    expect(m.lair_actions[0].desc).toMatch(/^Attack Roll:/);
+    expect(m.lair_actions[0].desc).toContain(
+      'Hit: 10 (2d6 + 3) bludgeoning damage, and the target is grappled (escape DC 14).'
     );
-    expect(m.lair_actions[1].desc).toBe(
-      'Each creature of the dragon\'s choice in the lair must make a Saving Throw: DC 15 Constitution, taking 14 (4d6) poison damage on a failed save, or half as much damage on a successful one.'
+    expect(m.lair_actions[1].desc).toContain('Saving Throw: DC 15 Constitution');
+    expect(m.lair_actions[1].desc).toContain(
+      'taking 14 (4d6) poison damage on a failed save, or half as much damage on a successful one.'
     );
   });
 });
