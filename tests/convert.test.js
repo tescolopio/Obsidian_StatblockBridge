@@ -359,27 +359,31 @@ describe('convertTo2024', () => {
     expect(m.legendary_actions[0].desc).toMatch(/^Attack Roll:/);
   });
 
-  it('handles lair_actions with weapon attacks and saving throws (currently pass-through)', () => {
-    const lairActions = [
-      {
-        name: 'Crushing Vines',
-        desc:
-          'Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 10 (2d6 + 3) bludgeoning damage, and the target is grappled (escape DC 14).'
-      },
-      {
-        name: 'Poisonous Miasma',
-        desc:
-          'Each creature of the dragon\'s choice in the lair must make a DC 15 Constitution saving throw, taking 14 (4d6) poison damage on a failed save, or half as much damage on a successful one.'
-      }
-    ];
-
+  it('converts lair_actions weapon attacks and saving throws to 2024 format', () => {
     const m = convertTo2024({
       ...goblin2014,
-      lair_actions: lairActions
+      lair_actions: [
+        {
+          name: 'Crushing Vines',
+          desc:
+            'Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 10 (2d6 + 3) bludgeoning damage, and the target is grappled (escape DC 14).'
+        },
+        {
+          name: 'Poisonous Miasma',
+          desc:
+            'Each creature of the dragon\'s choice in the lair must make a DC 15 Constitution saving throw, taking 14 (4d6) poison damage on a failed save, or half as much damage on a successful one.'
+        }
+      ]
     });
 
     expect(m.lair_actions).toHaveLength(2);
-    expect(m.lair_actions[0].desc).toBe(lairActions[0].desc);
-    expect(m.lair_actions[1].desc).toBe(lairActions[1].desc);
+    expect(m.lair_actions[0].desc).toMatch(/^Attack Roll:/);
+    expect(m.lair_actions[0].desc).toContain(
+      'Hit: 10 (2d6 + 3) bludgeoning damage, and the target is grappled (escape DC 14).'
+    );
+    expect(m.lair_actions[1].desc).toContain('Saving Throw: DC 15 Constitution');
+    expect(m.lair_actions[1].desc).toContain(
+      'taking 14 (4d6) poison damage on a failed save, or half as much damage on a successful one.'
+    );
   });
 });

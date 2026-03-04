@@ -117,10 +117,11 @@ function getXP(cr) {
  *     → "Attack Roll: +X, reach Y ft. or range Y/Z ft. Hit:"
  *   "DC X Ability saving throw"  → "Saving Throw: DC X Ability"
  *
- * @param {string} desc
- * @returns {string}
+ * @param {string|null} [desc]
+ * @returns {string|null}
  */
 function convertAttackDesc(desc) {
+  if (desc === undefined) return null;
   if (!desc) return desc;
 
   // Melee or Ranged Weapon Attack (must be checked before the individual patterns)
@@ -214,6 +215,7 @@ function convertTo2024(monster2014) {
   m.bonus_actions    = convertActionList(m.bonus_actions);
   m.reactions        = convertActionList(m.reactions);
   m.legendary_actions = convertActionList(m.legendary_actions);
+  m.lair_actions     = convertActionList(m.lair_actions);
 
   // -- Tag layout for Fantasy Statblocks -------------------------------------
   m.layout = 'D&D 2024';
